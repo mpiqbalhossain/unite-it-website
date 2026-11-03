@@ -1,0 +1,365 @@
+﻿<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>UNITE IT & Security Solution | AI, Cyber Security & Web Development</title>
+<style>
+:root{--navy:#0b1f3a;--navy-2:#12294d;--gold:#d4a017;--gold-light:#f0c040;--white:#fff;--bg:#f7f9fc;--text:#1a2332;--muted:#5a6b82;--card:#fff;--border:#e2e8f0;--radius:14px;--shadow:0 8px 24px rgba(11,31,58,.08)}
+[data-theme="dark"]{--bg:#0a1628;--text:#e8eef7;--muted:#9fb0c7;--card:#12294d;--border:#1e3a5f;--shadow:0 8px 24px rgba(0,0,0,.4)}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;transition:background .3s,color .3s}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+.gold{color:var(--gold)}.center{text-align:center}
+.header{position:sticky;top:0;z-index:100;background:var(--navy);color:var(--white);box-shadow:0 2px 12px rgba(0,0,0,.2)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:80px;gap:20px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--white)}
+.logo-mark{height:55px;width:auto;display:flex;align-items:center}
+.logo-mark img{height:100%;width:auto;object-fit:contain;background:#fff;border-radius:8px;padding:4px}
+.nav{display:flex;align-items:center;gap:22px}
+.nav a{color:#cfe0f5;text-decoration:none;font-size:15px}
+.nav a:hover{color:var(--gold-light)}
+.header-actions{display:flex;gap:8px;align-items:center}
+.social-icon{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.1);display:grid;place-items:center;transition:0.2s;text-decoration:none}
+.social-icon:hover{background:var(--gold);transform:translateY(-2px)}
+.social-icon img{width:16px;height:16px;object-fit:contain}
+.menu-btn{display:none;background:rgba(255,255,255,.1);color:#fff;border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px}
+.btn{display:inline-block;padding:12px 24px;border-radius:10px;font-weight:600;text-decoration:none;cursor:pointer;border:none;font-size:15px;transition:transform .15s}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:linear-gradient(135deg,var(--gold),var(--gold-light));color:var(--navy)}
+.btn-outline{background:transparent;border:2px solid var(--gold);color:var(--gold)}
+.btn-ghost{background:rgba(255,255,255,.1);color:var(--white)!important;padding:8px 16px;font-size:14px}
+.btn-sm{padding:8px 16px;font-size:13px}
+.hero{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-2) 100%);color:var(--white);padding:80px 0;position:relative;overflow:hidden}
+.hero-inner{display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;position:relative;z-index:1}
+.badge{display:inline-block;background:rgba(212,160,23,.15);color:var(--gold-light);padding:6px 14px;border-radius:30px;font-size:13px;font-weight:600;margin-bottom:20px;border:1px solid rgba(212,160,23,.3)}
+.hero h1{font-size:46px;line-height:1.15;margin-bottom:20px}
+.hero p{color:#c8d6ea;font-size:17px;margin-bottom:30px;max-width:520px}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.hero-stats{display:flex;gap:40px;list-style:none}
+.hero-stats strong{display:block;font-size:28px;color:var(--gold-light)}
+.hero-stats span{font-size:13px;color:#a9bcd6}
+.video-box{aspect-ratio:16/10;border-radius:var(--radius);background:#000;border:1px solid rgba(212,160,23,.3);display:grid;place-items:center;box-shadow:0 20px 60px rgba(0,0,0,.4);overflow:hidden;position:relative}
+.video-box img{width:100%;height:100%;object-fit:cover;opacity:0.85;transition:0.3s}
+.video-box img:hover{opacity:1;transform:scale(1.05)}
+.play-btn{position:absolute;display:grid;place-items:center;width:70px;height:70px;border-radius:50%;background:var(--gold);color:var(--navy);font-size:26px;cursor:pointer;animation:pulse 2s infinite;z-index:2}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(212,160,23,.5)}50%{box-shadow:0 0 0 20px rgba(212,160,23,0)}}
+.section{padding:80px 0}.section-alt{background:var(--card)}
+[data-theme="dark"] .section-alt{background:#0e1f38}
+.section-title{font-size:36px;margin-bottom:12px}
+.section-sub{color:var(--muted);margin-bottom:45px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}
+.two-col p{margin-bottom:16px;color:var(--muted)}
+.about-img .img-placeholder{aspect-ratio:4/3;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.about-img img{width:100%;height:100%;object-fit:cover}
+.grid{display:grid;gap:24px}
+.services-grid{grid-template-columns:repeat(4,1fr)}
+.products-grid{grid-template-columns:repeat(4,1fr)}
+.blog-grid{grid-template-columns:repeat(3,1fr)}
+.card{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);transition:transform .2s}
+.card:hover{transform:translateY(-6px)}
+.service-card{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.service-img{height:160px;width:100%;overflow:hidden}
+.service-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
+.service-card:hover .service-img img{transform:scale(1.1)}
+.service-content{padding:20px;display:flex;flex-direction:column;flex:1}
+.service-content h3{font-size:18px;margin-bottom:10px}
+.service-content p{color:var(--muted);font-size:14px;margin-bottom:14px;flex:1}
+.link{color:var(--gold);text-decoration:none;font-weight:600;font-size:14px;margin-top:auto}
+.product-card{text-align:center;padding:15px;display:flex;flex-direction:column}
+.product-img{aspect-ratio:1;border-radius:10px;background:var(--bg);margin-bottom:16px;overflow:hidden;width:100%}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform 0.3s}
+.product-card:hover .product-img img{transform:scale(1.1)}
+.product-card h3{font-size:16px;margin-bottom:6px}
+.product-card p{font-size:13px;color:var(--muted);margin-bottom:10px;flex:1}
+.price{color:var(--gold);font-weight:700;font-size:18px;margin-bottom:14px}
+.blog-card .tag{display:inline-block;background:rgba(212,160,23,.12);color:var(--gold);font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px;margin-bottom:12px}
+.blog-card h3{font-size:17px;margin-bottom:8px}
+.blog-card p{color:var(--muted);font-size:14px;margin-bottom:14px}
+.contact-list{list-style:none;margin-top:20px}
+.contact-list li{margin-bottom:12px;color:var(--muted)}
+.form{display:flex;flex-direction:column;gap:14px}
+.form input,.form select,.form textarea{padding:12px 14px;border-radius:10px;border:1px solid var(--border);background:var(--bg);color:var(--text);font-size:15px;font-family:inherit}
+.form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--gold);border-color:transparent}
+.form-note{font-size:14px;color:var(--gold);font-weight:600}
+.payment-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:15px;margin-top:20px}
+.payment-box{background:var(--card);border:1px solid var(--border);padding:20px;border-radius:10px;text-align:center;transition:0.2s;display:flex;align-items:center;justify-content:center;height:90px}
+.payment-box:hover{border-color:var(--gold);box-shadow:0 4px 12px rgba(212,160,23,.2)}
+.payment-box img{max-height:35px;max-width:90%;object-fit:contain}
+.footer{background:var(--navy);color:#c8d6ea;padding:50px 0 0}
+.footer-inner{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;padding-bottom:40px}
+.footer h4{color:var(--white);margin-bottom:14px}
+.footer a{display:block;color:#a9bcd6;text-decoration:none;margin-bottom:8px}
+.footer a:hover{color:var(--gold-light)}
+.footer-social{display:flex;gap:10px;margin-top:10px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);text-align:center;padding:18px;font-size:13px}
+.whatsapp-btn,.nora-btn{position:fixed;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;font-size:24px;cursor:pointer;border:none;box-shadow:0 6px 20px rgba(0,0,0,.25);z-index:90}
+.whatsapp-btn{bottom:24px;right:24px;background:#25d366;text-decoration:none}
+.nora-btn{bottom:90px;right:24px;background:linear-gradient(135deg,var(--gold),var(--gold-light))}
+.nora-panel{position:fixed;bottom:160px;right:24px;width:360px;max-width:calc(100vw - 48px);height:480px;max-height:70vh;background:var(--card);border:1px solid var(--border);border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.3);display:none;flex-direction:column;z-index:95;overflow:hidden}
+.nora-panel.open{display:flex}
+.nora-header{background:var(--navy);color:var(--white);padding:14px 18px;display:flex;justify-content:space-between;align-items:center}
+.nora-header h4{font-size:15px}
+.nora-close{background:none;border:none;color:var(--white);font-size:20px;cursor:pointer}
+.nora-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px}
+.nora-msg{padding:10px 14px;border-radius:12px;font-size:14px;max-width:85%}
+.nora-msg.bot{background:var(--bg);border:1px solid var(--border);align-self:flex-start}
+.nora-msg.user{background:var(--gold);color:var(--navy);align-self:flex-end;font-weight:600}
+.nora-input{display:flex;gap:8px;padding:10px;border-top:1px solid var(--border)}
+.nora-input input{flex:1;padding:10px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text)}
+.nora-input button{background:var(--gold);border:none;color:var(--navy);font-weight:700;padding:0 16px;border-radius:8px;cursor:pointer}
+@media(max-width:1024px){.services-grid,.products-grid,.payment-grid{grid-template-columns:repeat(3,1fr)}.hero h1{font-size:36px}.footer-inner{grid-template-columns:1fr 1fr}}
+@media(max-width:768px){.menu-btn{display:block}.nav{position:absolute;top:80px;left:0;right:0;background:var(--navy);flex-direction:column;padding:20px;gap:16px;display:none;border-top:1px solid rgba(255,255,255,.1)}.nav.open{display:flex}.hero-inner,.two-col,.footer-inner{grid-template-columns:1fr}.hero{padding:50px 0}.hero h1{font-size:30px}.section{padding:50px 0}.blog-grid{grid-template-columns:1fr}.payment-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.services-grid,.products-grid{grid-template-columns:1fr}.hero-btns{flex-direction:column}.payment-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark"><img src="logo.png" alt="UNITE Logo"></span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#services">Services</a>
+      <a href="#products">Shop</a><a href="#payment">Payment</a><a href="#blog">Blog</a><a href="#contact">Contact</a>
+      <a href="#" class="btn btn-ghost">Login / Register</a>
+    </nav>
+    <div class="header-actions">
+      <a href="https://facebook.com/YOUR_PAGE" target="_blank" class="social-icon" title="Facebook"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook"></a>
+      <a href="https://linkedin.com/company/YOUR_PAGE" target="_blank" class="social-icon" title="LinkedIn"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn"></a>
+      <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank" class="social-icon" title="YouTube"><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube"></a>
+      <button id="themeToggle" class="icon-btn" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:var(--white);width:36px;height:36px;border-radius:50%;font-size:16px;cursor:pointer;display:grid;place-items:center;margin-left:5px">🌙</button>
+      <button id="menuToggle" class="menu-btn" aria-label="Menu">☰</button>
+    </div>
+  </div>
+</header>
+
+<section class="hero" id="home">
+  <div class="container hero-inner">
+    <div>
+      <span class="badge">AI • Cyber Security • CCTV</span>
+      <h1>Secure Your Business with <span class="gold">AI &amp; IT Excellence</span></h1>
+      <p>UNITE IT &amp; Security Solution delivers AI integration, ethical hacking, CCTV surveillance and professional web development — built for Bangladesh and the world.</p>
+      <div class="hero-btns">
+        <a href="#services" class="btn btn-primary">Explore Services</a>
+        <a href="#contact" class="btn btn-outline">Request a Quote</a>
+      </div>
+      <ul class="hero-stats">
+        <li><strong>150+</strong><span>Projects</span></li>
+        <li><strong>80+</strong><span>Clients</span></li>
+        <li><strong>24/7</strong><span>Nora AI Support</span></li>
+      </ul>
+    </div>
+    <div>
+      <div class="video-box">
+        <img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=800&q=80" alt="CCTV Security">
+        <div class="play-btn">▶</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container two-col">
+    <div>
+      <h2 class="section-title">About <span class="gold">UNITE</span></h2>
+      <p>We are a Dhaka-based IT &amp; Security company combining AI, cybersecurity, CCTV surveillance and modern web development under one roof.</p>
+      <p>Our mission is to make world-class technology accessible to Bangladeshi businesses — from a $5 quick fix to enterprise-grade security systems.</p>
+      <a href="#" class="btn btn-outline">Learn More</a>
+    </div>
+    <div class="about-img">
+      <div class="img-placeholder">
+        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?w=600&q=80" alt="Cyber Security Team">
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="services">
+  <div class="container">
+    <h2 class="section-title center">Our <span class="gold">Services</span></h2>
+    <p class="section-sub center">Eight core services to power and protect your business.</p>
+    <div class="grid services-grid">
+      <article class="card service-card">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1620712943543-bcc4688e7485?w=400&q=80" alt="AI Integration"></div>
+        <div class="service-content"><h3>AI Integration</h3><p>Deploy custom AI chatbots and Nora AI support to automate customer service 24/7.</p><a href="#" class="link">See More →</a></div>
+      </article>
+      <article class="card service-card">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80" alt="Cyber Security"></div>
+        <div class="service-content"><h3>Cyber Security</h3><p>Protect your business with comprehensive security audits, threat monitoring, and vulnerability protection.</p><a href="#" class="link">See More →</a></div>
+      </article>
+      <article class="card service-card">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&q=80" alt="Web Development"></div>
+        <div class="service-content"><h3>Web Development</h3><p>We build fast, responsive, and secure custom websites and e-commerce stores tailored to your brand.</p><a href="#" class="link">See More →</a></div>
+      </article>
+      <article class="card service-card">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=400&q=80" alt="CCTV & Surveillance"></div>
+        <div class="service-content"><h3>CCTV &amp; Surveillance</h3><p>Professional IP camera installation, DVR/NVR setup, and remote monitoring for total peace of mind.</p><a href="#" class="link">See More →</a></div>
+      </article>
+      <article class="card service-card">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&q=80" alt="Digital Marketing"></div>
+        <div class="service-content"><h3>Digital Marketing</h3><p>Grow your audience with strategic SEO, social media management, and high-converting ad campaigns.</p><a href="#" class="link">See More →</a></div>
+      </article>
+      <article class="card service-card">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?w=400&q=80" alt="Ethical Hacking"></div>
+        <div class="service-content"><h3>Ethical Hacking</h3><p>Authorized penetration testing to identify weaknesses and fix them before malicious hackers do.</p><a href="#" class="link">See More →</a></div>
+      </article>
+      <article class="card service-card">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&q=80" alt="$5 Quick Services"></div>
+        <div class="service-content"><h3>$5 Quick Services</h3><p>Fast and affordable digital fixes, from logo tweaks and bug fixes to quick software setups.</p><a href="#" class="link">See More →</a></div>
+      </article>
+      <article class="card service-card">
+        <div class="service-img"><img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&q=80" alt="IT & Security Solutions"></div>
+        <div class="service-content"><h3>IT &amp; Security Solutions</h3><p>End-to-end IT infrastructure, network setup, and enterprise-grade managed security services.</p><a href="#" class="link">See More →</a></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="products">
+  <div class="container">
+    <h2 class="section-title center">Featured <span class="gold">Products</span></h2>
+    <div class="grid products-grid">
+      <article class="card product-card">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=400&q=80" alt="HD IP Camera"></div>
+        <h3>HD IP Camera</h3><p>2MP Night Vision<br>Mobile App View</p><p class="price">৳ 4,500</p><a href="#" class="btn btn-outline btn-sm">See More</a>
+      </article>
+      <article class="card product-card">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=400&q=80" alt="8-Channel DVR"></div>
+        <h3>8-Channel DVR</h3><p>H.265 Compression<br>1TB Hard Drive</p><p class="price">৳ 9,800</p><a href="#" class="btn btn-outline btn-sm">See More</a>
+      </article>
+      <article class="card product-card">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&q=80" alt="Access Control"></div>
+        <h3>Access Control Kit</h3><p>RFID Card Entry<br>Electric Lock Included</p><p class="price">৳ 12,500</p><a href="#" class="btn btn-outline btn-sm">See More</a>
+      </article>
+      <article class="card product-card">
+        <div class="product-img"><img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=400&q=80" alt="Fire Alarm"></div>
+        <h3>Fire Alarm System</h3><p>Smoke Detectors<br>Loud Siren Panel</p><p class="price">৳ 7,200</p><a href="#" class="btn btn-outline btn-sm">See More</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="payment">
+  <div class="container">
+    <h2 class="section-title center">Global & <span class="gold">Local Payments</span></h2>
+    <p class="section-sub center">We accept USA & International cards, plus local Bangladeshi mobile banking.</p>
+    <div class="payment-grid">
+      <div class="payment-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Stripe_Logo%2C_revised_2016.svg/512px-Stripe_Logo%2C_revised_2016.svg.png" alt="Stripe"></div>
+      <div class="payment-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/512px-PayPal.svg.png" alt="PayPal"></div>
+      <div class="payment-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/512px-Mastercard-logo.svg.png" alt="Mastercard"></div>
+      <div class="payment-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/512px-Visa_Inc._logo.svg.png" alt="Visa"></div>
+      <div class="payment-box"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/BKash_Logo.svg/512px-BKash_Logo.svg.png" alt="bKash"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="blog">
+  <div class="container">
+    <h2 class="section-title center">Latest <span class="gold">News</span></h2>
+    <div class="grid blog-grid">
+      <article class="card blog-card"><span class="tag">Cyber Security</span><h3>5 Steps to Secure Your Small Business</h3><p>Practical steps every Bangladeshi SME should take today.</p><a href="#" class="link">Read More →</a></article>
+      <article class="card blog-card"><span class="tag">AI</span><h3>How Nora AI Cuts Support Costs</h3><p>Automating customer replies in Bangla and English.</p><a href="#" class="link">Read More →</a></article>
+      <article class="card blog-card"><span class="tag">CCTV</span><h3>IP Camera vs Analog</h3><p>A simple comparison guide for home and office.</p><a href="#" class="link">Read More →</a></article>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="contact">
+  <div class="container two-col">
+    <div>
+      <h2 class="section-title">Request a <span class="gold">Quote</span></h2>
+      <p>Tell us about your project — we'll respond within 24 hours.</p>
+      <ul class="contact-list">
+        <li>📍 40/1, Middle Badda, Dhaka-1212</li>
+        <li>📞 +8801611-236727</li>
+        <li>📞 +8801911-236727</li>
+        <li>✉️ info.uniteit@gmail.com</li>
+      </ul>
+    </div>
+    <form class="card form" id="quoteForm">
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <input type="tel" placeholder="Phone Number" />
+      <select><option>Select a Service</option><option>AI Integration</option><option>Cyber Security</option><option>Web Development</option><option>CCTV &amp; Surveillance</option><option>Digital Marketing</option><option>$5 Quick Service</option></select>
+      <textarea rows="4" placeholder="Describe your project..."></textarea>
+      <button type="submit" class="btn btn-primary">Send Request</button>
+      <p class="form-note" id="formNote"></p>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container footer-inner">
+    <div><h4>UNITE IT &amp; Security Solution</h4><p>AI • Cyber Security • CCTV • Web Development</p></div>
+    <div><h4>Quick Links</h4><a href="#about">About</a><a href="#services">Services</a><a href="#products">Shop</a><a href="#contact">Contact</a></div>
+    <div><h4>Contact</h4><p>+8801611-236727</p><p>info.uniteit@gmail.com</p></div>
+    <div>
+      <h4>Follow Us</h4>
+      <div class="footer-social">
+        <a href="https://facebook.com/YOUR_PAGE" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" style="width:24px;height:24px;"></a>
+        <a href="https://linkedin.com/company/YOUR_PAGE" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" style="width:24px;height:24px;"></a>
+        <a href="https://youtube.com/@YOUR_CHANNEL" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/0/09/YouTube_full-color_icon_%282017%29.svg" alt="YouTube" style="width:28px;height:24px;"></a>
+        <a href="https://wa.me/8801611236727" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" style="width:24px;height:24px;"></a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 UNITE IT &amp; Security Solution. All rights reserved.</div>
+</footer>
+
+<a href="https://wa.me/8801611236727" class="whatsapp-btn" target="_blank">💬</a>
+<button class="nora-btn" id="noraBtn">🤖</button>
+
+<div class="nora-panel" id="noraPanel">
+  <div class="nora-header"><h4>🤖 Nora AI Assistant</h4><button class="nora-close" id="noraClose">×</button></div>
+  <div class="nora-body" id="noraBody">
+    <div class="nora-msg bot">Hi! I'm Nora 👋 How can I help you today? Ask about our services, pricing, or CCTV solutions.</div>
+  </div>
+  <div class="nora-input">
+    <input type="text" id="noraInput" placeholder="Type your message..."/>
+    <button id="noraSend">Send</button>
+  </div>
+</div>
+
+<script>
+const menuToggle=document.getElementById('menuToggle'),nav=document.getElementById('nav');
+menuToggle?.addEventListener('click',()=>nav.classList.toggle('open'));
+nav?.querySelectorAll('a').forEach(l=>l.addEventListener('click',()=>nav.classList.remove('open')));
+const themeToggle=document.getElementById('themeToggle'),root=document.documentElement;
+const saved=localStorage.getItem('unite-theme')||'light';
+root.setAttribute('data-theme',saved);themeToggle.textContent=saved==='dark'?'☀️':'🌙';
+themeToggle?.addEventListener('click',()=>{const c=root.getAttribute('data-theme'),n=c==='dark'?'light':'dark';root.setAttribute('data-theme',n);themeToggle.textContent=n==='dark'?'☀️':'🌙';localStorage.setItem('unite-theme',n);});
+const qf=document.getElementById('quoteForm'),fn=document.getElementById('formNote');
+qf?.addEventListener('submit',e=>{e.preventDefault();const name=qf.querySelector('input[type="text"]').value.trim(),email=qf.querySelector('input[type="email"]').value.trim();
+if(!name||!email){fn.textContent='Please fill name & email.';fn.style.color='#e74c3c';return;}
+fn.textContent=`Thank you, ${name}! We'll reply within 24 hours.`;fn.style.color='#d4a017';qf.reset();});
+
+const noraBtn=document.getElementById('noraBtn'),noraPanel=document.getElementById('noraPanel'),noraClose=document.getElementById('noraClose'),noraBody=document.getElementById('noraBody'),noraInput=document.getElementById('noraInput'),noraSend=document.getElementById('noraSend');
+noraBtn?.addEventListener('click',()=>noraPanel.classList.toggle('open'));
+noraClose?.addEventListener('click',()=>noraPanel.classList.remove('open'));
+
+const noraKnowledge=[
+  {k:['cctv','camera','surveillance'],a:'We install HD IP cameras, DVR/NVR systems, access control and fire alarms. Starting from ৳4,500. Want a free site survey?'},
+  {k:['price','cost','how much'],a:'Pricing varies by service: $5 quick services, web development from ৳15,000, CCTV from ৳4,500. Tell me your project for an exact quote.'},
+  {k:['ai','chatbot','nora'],a:'Yes! I am Nora, powered by OpenAI. We build custom AI chatbots, voice assistants and automation for businesses.'},
+  {k:['web','website','ecommerce'],a:'We build custom websites, WordPress and full e-commerce systems with secure admin panels. Starting from ৳15,000.'},
+  {k:['contact','phone','whatsapp','email'],a:'Call +8801611-236727 or WhatsApp us. Email: info.uniteit@gmail.com. Office: 40/1 Middle Badda, Dhaka.'},
+  {k:['security','hacking','cyber'],a:'We offer ethical hacking, penetration testing, security audits and managed cybersecurity. All testing is authorized and confidential.'},
+];
+function noraReply(msg){
+  const m=msg.toLowerCase();
+  for(const item of noraKnowledge){if(item.k.some(k=>m.includes(k)))return item.a;}
+  return "Thanks for your message! Our team will follow up. Meanwhile, you can call +8801611-236727 or use the WhatsApp button below. 🤖";
+}
+function appendNora(text,cls){const d=document.createElement('div');d.className='nora-msg '+cls;d.textContent=text;noraBody.appendChild(d);noraBody.scrollTop=noraBody.scrollHeight;}
+function sendNora(){
+  const t=noraInput.value.trim();if(!t)return;
+  appendNora(t,'user');noraInput.value='';
+  setTimeout(()=>appendNora(noraReply(t),'bot'),400);
+}
+noraSend?.addEventListener('click',sendNora);
+noraInput?.addEventListener('keypress',e=>{if(e.key==='Enter')sendNora();});
+</script>
+</body>
+</html>
