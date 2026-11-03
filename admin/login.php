@@ -1,0 +1,2 @@
+﻿<?php require_once '../config.php'; if($_SERVER['REQUEST_METHOD']==='POST'){ $stmt=$pdo->prepare("SELECT * FROM users WHERE email=?"); $stmt->execute([$_POST['email']]); $u=$stmt->fetch(); if($u && password_verify($_POST['password'], $u['password_hash'])){ $_SESSION['admin']=$u['id']; header('Location: index.php'); exit; } } ?>
+<form method="post"><input name="email" placeholder="Email" required><br><input name="password" type="password" placeholder="Password" required><br><button>Login</button></form>

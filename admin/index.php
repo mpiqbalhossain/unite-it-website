@@ -1,0 +1,1 @@
+﻿<?php require_once '../config.php'; if(empty($_SESSION['admin'])){ header('Location: login.php'); exit; } echo "<h1>Admin Dashboard</h1><p>Welcome to UNITE system.</p>"; ?>
